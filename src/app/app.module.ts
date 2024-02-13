@@ -48,6 +48,7 @@ import { LoadingComponent } from './loading/loading.component';
     ReactiveFormsModule,
     RouterModule,
     CarouselModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot(
       {
         timeOut: 2000,

@@ -1,0 +1,29 @@
+<div class="py-5">
+    <div class="container">
+        <div class="row" *ngIf="MovieDetailsContainer">
+            <div class="col-lg-5">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+MovieDetailsContainer.poster_path" class="rounded-3 w-100"
+                    height="600" alt="">
+            </div>
+            <div class="col-lg-7 d-flex flex-column justify-content-center">
+                <h1>{{MovieDetailsContainer.original_title}}</h1>
+                <h6 class="py-3">{{MovieDetailsContainer.overview}}</h6>
+                <h6 class="py-3 text-white-50">{{MovieDetailsContainer.tagline}}</h6>
+                <ul class="list-unstyled d-flex">
+                    <li class="bg-dark p-2 mx-2 rounded-2" *ngFor="let item of MovieDetailsContainer.genres">
+                        {{item.name}}</li>
+                </ul>
+                <ul class="list-unstyled">
+                    <li class="my-4">Budget : {{ MovieDetailsContainer.budget |currency: 'EUR'}}</li>
+                    <li class="my-4">Language : {{MovieDetailsContainer.original_language}}</li>
+                    <li class="my-4">Vote : {{MovieDetailsContainer.vote_average}}</li>
+                    <li class="my-4">Vote Count : {{MovieDetailsContainer.vote_count}}</li>
+                    <li class="my-4">Popularity : {{MovieDetailsContainer.popularity}}</li>
+                    <li class="my-4">Release Date : {{MovieDetailsContainer.release_date}}</li>
+
+                </ul>
+            </div>
+        </div>
+        <app-loading *ngIf="MovieDetailsContainer == null"></app-loading>
+    </div>
+</div>

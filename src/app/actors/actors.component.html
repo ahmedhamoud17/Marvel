@@ -1,0 +1,22 @@
+<div class="py-5">
+    <div class="container">
+        <div class="row" *ngIf="ActorsContainer">
+            <div class="col-md-4 d-flex flex-column justify-content-center">
+                <div class="item">
+                    <hr class="w-25 border-secondary">
+                    <h2>Top Popular Actors <br> To Watch Right Now</h2>
+                    <p class="text-white-50">Most Watched Actors By days</p>
+                    <hr class="w-50 border-secondary">
+                </div>
+            </div>
+            <div *ngFor="let actor of ActorsContainer" class="col-md-2">
+                <a [routerLink]="['/actordetails' , actor.id ]" class="text-decoration-none text-white">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+actor.profile_path"
+                        class="shadow cursor-pointer w-100 rounded-2" alt="">
+                    <h5 class="py-5">{{actor.original_name}}</h5>
+                </a>
+            </div>
+        </div>
+        <app-loading *ngIf="ActorsContainer == null"></app-loading>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="py-5">
+    <div class="container">
+        <div class="row" *ngIf="TvDetailsContainer">
+            <div class="col-lg-5">
+                <img [src]="'https://image.tmdb.org/t/p/w500'+TvDetailsContainer.poster_path" class="rounded-3 w-100"
+                    height="600" alt="">
+            </div>
+            <div class="col-lg-7 d-flex flex-column justify-content-center">
+                <h1>{{TvDetailsContainer.name}}</h1>
+                <h6 class="py-3">{{TvDetailsContainer.overview}}</h6>
+                <h6 class="py-3 text-white-50">{{TvDetailsContainer.tagline}}</h6>
+                <ul class="list-unstyled d-flex">
+                    <li class="bg-dark p-2 mx-2 rounded-2" *ngFor="let item of TvDetailsContainer.genres">
+                        {{item.name}}</li>
+                </ul>
+                <ul class="list-unstyled">
+                    <li class="my-3">Seasons : {{ TvDetailsContainer.number_of_seasons}}</li>
+                    <li class="my-3">Episodes : {{ TvDetailsContainer.number_of_episodes }}</li>
+                    <li class="my-3">Language : {{TvDetailsContainer.original_language}}</li>
+                    <li class="my-3">Vote : {{TvDetailsContainer.vote_average}}</li>
+                    <li class="my-3">Vote Count : {{TvDetailsContainer.vote_count}}</li>
+                    <li class="my-3">Popularity : {{TvDetailsContainer.popularity}}</li>
+                    <li class="my-3">Release Date : {{TvDetailsContainer.last_air_date}}</li>
+
+                </ul>
+            </div>
+        </div>
+        <app-loading *ngIf="TvDetailsContainer == null"></app-loading>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="pt-5">
+    <div class="container">
+        <div class="row gy-5" *ngIf="TrendingMoviesContainer">
+            <div class="col-md-4 d-flex flex-column justify-content-center">
+                <div class="item">
+                    <hr class="w-25 border-secondary">
+                    <h2>Trending Movies <br> To Watch Right Now</h2>
+                    <p class="text-white-50">Most Watched Movies By days</p>
+                    <hr class="w-50 border-secondary">
+                </div>
+            </div>
+            <div *ngFor="let movie of TrendingMoviesContainer" class="col-md-2">
+                <a [routerLink]="['/moviedetails' , movie.id ]" class="text-decoration-none text-white">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path"
+                        class="shadow cursor-pointer w-100 rounded-2" alt="">
+                    <h5 class="py-5">{{movie.title}}</h5>
+                </a>
+            </div>
+        </div>
+
+        <div class="row gy-5" *ngIf="TrendingTvContainer">
+            <div class="col-md-4 d-flex flex-column justify-content-center">
+                <div class="item">
+                    <hr class="w-25 border-secondary">
+                    <h2>Trending TvShow <br> To Watch Right Now</h2>
+                    <p class="text-white-50">Most Watched TV By days</p>
+                    <hr class="w-50 border-secondary">
+                </div>
+            </div>
+            <div *ngFor="let tv of TrendingTvContainer" class="col-md-2">
+                <a [routerLink]="['/tvdetails' , tv.id ]" class="text-decoration-none text-white">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+tv.poster_path"
+                        class="shadow cursor-pointer w-100 rounded-2" alt="">
+                    <h5 class="py-5">{{tv.name}}</h5>
+                </a>
+            </div>
+        </div>
+
+        <div class="row gy-5" *ngIf="TrendingActorsContainer">
+            <div class="col-md-4 d-flex flex-column justify-content-center">
+                <div class="item">
+                    <hr class="w-25 border-secondary">
+                    <h2>Trending Actors <br> To Watch Right Now</h2>
+                    <p class="text-white-50">Most Watched Actors By days</p>
+                    <hr class="w-50 border-secondary">
+                </div>
+            </div>
+            <div *ngFor="let actor of TrendingActorsContainer" class="col-md-2">
+                <a [routerLink]="['/actordetails' , actor.id ]" class="text-decoration-none text-white">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+actor.profile_path"
+                        class="shadow cursor-pointer w-100 rounded-2" alt="">
+                    <h5 class="py-5">{{actor.name}}</h5>
+                </a>
+            </div>
+        </div>
+
+        <app-loading *ngIf="TrendingMoviesContainer == null"></app-loading>
+
+    </div>
+</div>

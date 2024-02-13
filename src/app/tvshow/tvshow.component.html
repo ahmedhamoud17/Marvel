@@ -1,0 +1,22 @@
+<div class="py-5">
+    <div class="container">
+        <div class="row" *ngIf="TvContainer">
+            <div class="col-md-4 d-flex flex-column justify-content-center">
+                <div class="item">
+                    <hr class="w-25 border-secondary">
+                    <h2>Top Rated Tv Series <br> To Watch Right Now</h2>
+                    <p class="text-white-50">Most Watched Tv</p>
+                    <hr class="w-50 border-secondary">
+                </div>
+            </div>
+            <div *ngFor="let movie of TvContainer" class="col-md-2">
+                <a [routerLink]="['/tvdetails' , movie.id ]" class="text-decoration-none text-white">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path"
+                        class="shadow cursor-pointer w-100 rounded-2" alt="">
+                    <h5 class="py-5">{{movie.title}}</h5>
+                </a>
+            </div>
+        </div>
+        <app-loading *ngIf="TvContainer == null"></app-loading>
+    </div>
+</div>

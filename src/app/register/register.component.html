@@ -1,0 +1,83 @@
+<div class="py-5">
+    <div class="container p-1 shadow-lg">
+        <div class="row">
+            <div class="col-lg-7 col-md-12 col-sm-12 p-4 d-flex flex-column justify-content-center">
+                <div class="d-flex align-items-center ">
+                    <h4>Sign Up Now For</h4>
+                    <img src="assets\logo.png" class="ms-3" width="60" height="60" alt="">
+                </div>
+
+                <p class="alert-box my-3">{{ApiError}}</p>
+
+                <div class="py-3">
+                    <form (ngSubmit)="HandleRegister(RegisterForm)" [formGroup]="RegisterForm">
+
+                        <label for="first_name" class="mb-2">First Name</label>
+                        <input type="text" class="form-control mb-2 border-0 shadow-none" id="first_name"
+                            formControlName="first_name">
+                        <div *ngIf="RegisterForm.get('first_name')?.errors && RegisterForm.get('first_name')?.touched">
+                            <p *ngIf="RegisterForm.get('first_name')?.getError('required')">First Name Is Reguired</p>
+                            <p *ngIf="RegisterForm.get('first_name')?.getError('minlength')">First Name Min Length Is 5
+                            </p>
+                            <p *ngIf="RegisterForm.get('first_name')?.getError('maxlength')">First Name Max Length Is 15
+                            </p>
+                        </div>
+
+                        <label for="last_name" class="mb-2">Last Name</label>
+                        <input type="text" class="form-control mb-2 border-0 shadow-none" id="last_name"
+                            formControlName="last_name">
+                        <div *ngIf="RegisterForm.get('last_name')?.errors && RegisterForm.get('last_name')?.touched">
+                            <p *ngIf="RegisterForm.get('last_name')?.getError('required')">Last Name Is Reguired</p>
+                            <p *ngIf="RegisterForm.get('last_name')?.getError('minlength')">Last Name Min Length Is 5
+                            </p>
+                            <p *ngIf="RegisterForm.get('last_name')?.getError('maxlength')">Last Name Max Length Is 15
+                            </p>
+                        </div>
+
+                        <label for="email" class="mb-2">Email</label>
+                        <input type="text" class="form-control mb-2 border-0 shadow-none" id="email"
+                            formControlName="email">
+                        <div *ngIf="RegisterForm.get('email')?.errors && RegisterForm.get('email')?.touched">
+                            <p *ngIf="RegisterForm.get('email')?.getError('required')">Email Is Reguired</p>
+                            <p *ngIf="RegisterForm.get('email')?.getError('email')">Invalid Email
+                            </p>
+
+                        </div>
+
+                        <label for="password" class="mb-2">Password</label>
+                        <input type="text" class="form-control mb-2 border-0 shadow-none" id="password"
+                            formControlName="password">
+                        <div *ngIf="RegisterForm.get('password')?.errors && RegisterForm.get('password')?.touched">
+                            <p *ngIf="RegisterForm.get('password')?.getError('required')">Password Is Reguired</p>
+                            <p *ngIf="RegisterForm.get('password')?.getError('pattern')">Invalid Password
+                            </p>
+
+                        </div>
+
+                        <label for="age" class="mb-2">Age</label>
+                        <input type="number" class="form-control mb-2 border-0 shadow-none" id="age"
+                            formControlName="age">
+                        <div *ngIf="RegisterForm.get('age')?.errors && RegisterForm.get('age')?.touched">
+                            <p *ngIf="RegisterForm.get('age')?.getError('required')">Age Is Reguired</p>
+                            <p *ngIf="RegisterForm.get('age')?.getError('min')">For +18 Only
+                            </p>
+
+                        </div>
+
+
+                        <button [disabled]="RegisterForm.invalid" type="submit" class="btn button-main shadow-lg fw-bold mt-3" role="button">
+                            <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                            <span *ngIf="!isLoading">Sign Up</span>
+                        </button>
+
+                    </form>
+                </div>
+
+
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 signup">
+                <img src="assets\register.svg" class="w-100 rounded-4 " height="600" alt="">
+            </div>
+        </div>
+    </div>
+</div>

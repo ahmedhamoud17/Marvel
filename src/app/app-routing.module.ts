@@ -14,7 +14,7 @@ import { TvdetailsComponent } from './tvdetails/tvdetails.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', canActivate: [authGuard], component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'moviedetails/:id', canActivate: [authGuard], component: MoviedetailsComponent },
